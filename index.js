@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
-const { viewEmployee, addEmployee } = require('./manage_employees.js');
-const { viewAllRoles, addRole } = require('./roles.js');
+const { viewEmployee, addEmployee } = require('./sources/manage_employees.js');
+const { viewAllRoles, addRole } = require('./sources/roles.js');
 const cTable = require('console.table');
 
 // An array of questions for the command line prompt

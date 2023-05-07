@@ -1,6 +1,8 @@
-const connection = require('./db/connection')
-const inquirer = require('inquirer')
+const connection = require('../db/connection');
+const inquirer = require('inquirer');
 const cTable = require('console.table');
+const { prompt } = require('inquirer');
+
 
 function viewAllRoles() {
    connection.query('SELECT * FROM roles;'), function (err, results, fields) {

@@ -1,6 +1,7 @@
-const connection = require('./db/connection')
-const inquirer = require('inquirer')
-const { prompt } = require('inquirer')
+const connection = require('../db/connection');
+const inquirer = require('inquirer');
+const cTable = require('console.table');
+const { prompt } = require('inquirer');
 
 
 function viewAllEmployees() {
