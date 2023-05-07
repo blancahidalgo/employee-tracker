@@ -6,23 +6,23 @@ USE employee_data;
 -- Formatted table showing 
 -- DEPARTMENT NAMES and DEPARTMENT ID'S
 CREATE TABLE departments (
-    department_id INT UNSIGNED AUTO_INCREMENT,
-    department VARCHAR(30) NOT NULL,
-    PRIMARY KEY (department_id)
+    id INT UNSIGNED AUTO_INCREMENT,
+    name VARCHAR(30) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 -- Formatted table showing:
 -- JOB TITLE, ROLE ID, DEPARTMENT, SALARY 
 CREATE TABLE roles (
-  role_id INT NOT NULL AUTO_INCREMENT,
-  role_title VARCHAR(30) NOT NULL,
-  salary DECIMAL(10, 2) NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(30) NOT NULL,
+  salary DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
   department_id INT UNSIGNED NOT NULL,
   CONSTRAINT fk_department_id
   FOREIGN KEY (department_id)
-  REFERENCES departments (department_id)
+  REFERENCES departments (id)
   ON DELETE CASCADE,
-  PRIMARY KEY (role_id)
+  PRIMARY KEY (id)
 
 );
 
@@ -30,18 +30,16 @@ CREATE TABLE roles (
 -- employee data including:
 -- EMPLOYEE ID'S, FIRST & LAST NAME, JOB TITLES, DEPARTMENTS, SALARIES, and MANAGERS that the employees report to
 CREATE TABLE employees (
-  employee_id INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   role_id INT NOT NULL,
-  department_id INT UNSIGNED NOT NULL,
   manager_id INT,
-  salary DECIMAL(10, 2) NOT NULL,
   CONSTRAINT fk_role_id
   FOREIGN KEY (role_id)
-  REFERENCES roles (role_id)
+  REFERENCES roles (id)
   ON DELETE CASCADE,
-  PRIMARY KEY (employee_id)
+  PRIMARY KEY (id)
 );
 
 --  I added department & salary to this table as per the README. Contradicts the simplified version on README

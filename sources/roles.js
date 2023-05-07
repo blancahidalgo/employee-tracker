@@ -4,14 +4,15 @@ const cTable = require('console.table');
 const { prompt } = require('inquirer');
 
 
-function viewAllRoles() {
+function viewAllRoles(mainQuestions) {
    connection.query('SELECT * FROM roles;'), function (err, results, fields) {
       console.table(results);
+      mainQuestions();
    };
 
 
 // Add roles
-function addRole() {
+function addRole(mainQuestions) {
    inquirer.prompt([{
       name: 'title',
       message: 'write role title',
@@ -28,6 +29,7 @@ function addRole() {
       connection.query('INSERT INTO role SET title = ?, salary = ?, department_id = ?', [res.title, res.salary, res.department_id], function (err, results, fields) {
          connection.query('SELECT * FROM role;', function (err, results, fields) {
             console.table(results);
+            mainQuestions();
          });
       });
    })

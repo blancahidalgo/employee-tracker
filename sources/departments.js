@@ -4,14 +4,15 @@ const cTable = require('console.table');
 const { prompt } = require('inquirer');
 
 
-function viewAllDepartments() {
+function viewAllDepartments(mainQuestions) {
+   // exec.then ~ exec(then)
    connection.query('SELECT * FROM departments;', function (err, results, fields) {
       console.table(results);
+      mainQuestions();
    });
 }
 
-
-function addDepartment() {
+function addDepartment(mainQuestions) {
    prompt([{
       name: 'name',
       message: 'write department name',
@@ -19,6 +20,7 @@ function addDepartment() {
       connection.query('INSERT INTO departments SET name = ?;', res.name, function (err, results, fields) {
          connection.query('SELECT * FROM departments;', function (err, results, fields) {
             console.table(results);
+            mainQuestions();
          });
       })
    })
