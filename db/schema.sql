@@ -7,7 +7,7 @@ USE employee_data;
 -- DEPARTMENT NAMES and DEPARTMENT ID'S
 CREATE TABLE departments (
     department_id INT UNSIGNED AUTO_INCREMENT,
-    department VARCHAR() NOT NULL,
+    department VARCHAR(30) NOT NULL,
     PRIMARY KEY (department_id)
 );
 
@@ -20,8 +20,8 @@ CREATE TABLE roles (
   department_id INT UNSIGNED NOT NULL,
   CONSTRAINT fk_department_id
   FOREIGN KEY (department_id)
-  REFERENCES department(id)
-  ON DELETE CASCADE
+  REFERENCES departments (department_id)
+  ON DELETE CASCADE,
   PRIMARY KEY (role_id)
 
 );
@@ -39,8 +39,8 @@ CREATE TABLE employees (
   salary DECIMAL(10, 2) NOT NULL,
   CONSTRAINT fk_role_id
   FOREIGN KEY (role_id)
-  REFERENCES role(id)
-  ON DELETE CASCADE
+  REFERENCES roles (role_id)
+  ON DELETE CASCADE,
   PRIMARY KEY (employee_id)
 );
 

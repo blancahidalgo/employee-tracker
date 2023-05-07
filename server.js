@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const db = require('./db/connection.js');
 const mysql2 = require('mysql2');
 const express = require('express');
-const { connection } = require('./db/connection.js');
+const connection = require('./db/connection.js');
 const router = express.Router();
 
 
@@ -10,8 +10,7 @@ const router = express.Router();
 //   start();
 // })
 
-function questions() {
-  inquirer.prompt([
+const questions = [
       {
       type: 'list',
       name: 'mainMenu',
@@ -26,8 +25,7 @@ function questions() {
           'Add a new role',
       ],
   }
-]
-)}; 
+]; 
 
 
 // A function to initialize app
