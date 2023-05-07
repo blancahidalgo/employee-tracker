@@ -10,28 +10,38 @@ function viewAllRoles(mainQuestions) {
       mainQuestions();
    };
 
-
-// Add roles
 function addRole(mainQuestions) {
-   inquirer.prompt([{
-      name: 'title',
-      message: 'write role title',
-   },
-   {
-      name: 'salary',
-      message: 'write role salary',
-   },
-   {
-      name: 'department_id',
-      message: 'write department id',
-   },
-   ]).then(res => {
-      connection.query('INSERT INTO role SET title = ?, salary = ?, department_id = ?', [res.title, res.salary, res.department_id], function (err, results, fields) {
-         connection.query('SELECT * FROM role;', function (err, results, fields) {
-            console.table(results);
-            mainQuestions();
-         });
-      });
-   })
-}
+   inquirer.prompt([
+     {
+       name: 'title',
+       message: 'Enter the role title:',
+     },
+     {
+       name: 'salary',
+       message: 'Enter the role salary:',
+     },
+     {
+       name: 'department_id',
+       message: 'Enter the department id:',
+     },
+   ]).then((res) => {
+     connection.query(
+       'INSERT INTO roles SET ?',
+       {
+         title: res.title,
+         salary: res.salary,
+         department_id: res.department_id,
+       },
+       function (err, results, fields) {
+         if (err) {
+           console.error(err);
+         } else {
+           console.log('Role added successfully.');
+         }
+         mainQuestions();
+       }
+     );
+   });
+ }
+
 module.exports = { viewAllRoles, addRole }};

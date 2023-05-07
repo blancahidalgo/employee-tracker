@@ -1,7 +1,8 @@
 
 const inquirer = require('inquirer');
 const {viewAllDepartments, addDepartment} = require('./departments.js');
-const {viewAllEmployees, addEmployee} = require('./manage_employees');
+const {viewAllEmployees, addEmployee, updateEmployeeRole} = require('./manage_employees');
+const {viewAllRoles, addRole} = require('./roles');
 // TODO: Import other questions
 
 function mainQuestions () {
@@ -14,7 +15,6 @@ function mainQuestions () {
             'View all departments',
             'Add a new department',
             'View all employees',
-    
             'Add a new employee',
             'Update an employee role',
             'View all roles',
@@ -33,7 +33,7 @@ function mainQuestions () {
         } else if (answers.action === 'Add a new employee') {
             addEmployee(mainQuestions);
         } else if (answers.action === 'Update an employee role') {
-            updateEmployeeRole();
+            updateEmployeeRole(mainQuestions);
         } else if (answers.action === 'View all roles') {
             viewAllRoles(mainQuestions);
         } else if (answers.action === 'Add a new role') {
