@@ -3,7 +3,7 @@ const mysql2 = require('mysql2');
 
 
 // Connect to database
-const db = mysql2.createConnection(
+const connection = mysql2.createConnection(
     {
       host: 'localhost',
       user: process.env.DB_USER,
@@ -13,7 +13,7 @@ const db = mysql2.createConnection(
     console.log(`Connected to the employee_data database.`)
   );
 
-module.exports = {db};
+module.exports = {connection};
 
 
     
