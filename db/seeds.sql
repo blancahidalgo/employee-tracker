@@ -1,8 +1,31 @@
--- USE employee_data;
-INSERT INTO employees (employee_id, department, role, salary)
-VALUES (1, 'Sales', 'Sales Manager', 100000.00);
-        (2, 'Sales', 'Sales Representative', 60000.00);
-        (3, 'Marketing', 'Marketing Manager', 95000.00);
-        (4, 'Marketing', 'Marketing Coordinator', 45000.00);
-        (5, 'Engineering', 'Software Engineer', 80000.00);
-        (6, 'Engineering', 'Senior Software Engineer', 120000.00);
+INSERT INTO departments (name)
+VALUES ("Sales"),
+       ("Marketing"),
+       ("Engineering"),
+       ("Finance");
+
+INSERT INTO roles (title, salary, department_id)
+VALUES  ("Sales Manager", 120000, 1),
+        ("Marketing Manager", 125000, 2),
+        ("Engineering Manager", 140000, 3),
+        ("Finance Manager", 130000, 4);
+       
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
+VALUES  ("Megan", "Barnard", 1, NULL),
+        ("Blanca", "Hidalgo", 2, 1),
+        ("Toby", "Carrol", 3, 2),
+        ("Carol", "Helmore", 4, 2);
+
+
+
+
+
+
+
+
+
+
+
+
+        
+

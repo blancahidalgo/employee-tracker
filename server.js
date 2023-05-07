@@ -9,30 +9,8 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Connect to database
-const db = mysql.createConnection(
-  {
-    host: 'localhost',
-    user: 'root',
-    password: 'Bootcamp123!',
-    database: 'employee_data'
-  },
-  console.log(`Connected to the employee_data database.`)
-);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// I originally moved my connection to a separate file. Is that better practice? It was here before. 
 
 
 
