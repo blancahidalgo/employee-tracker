@@ -102,9 +102,6 @@ function viewAllEmployees(mainQuestions) {
          });
    }
 
-   // module.exports = { viewAllEmployees, addEmployee };
-
-
    function updateEmployeeRole(mainQuestions) {
       // Here we create a Promise to get employees from the database
       const employeesPromise = new Promise((resolve, reject) => {
@@ -117,6 +114,7 @@ function viewAllEmployees(mainQuestions) {
             } else {
                resolve(results);
             }
+            
          });
       });
 

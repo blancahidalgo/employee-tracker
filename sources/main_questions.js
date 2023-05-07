@@ -1,7 +1,6 @@
-
 const inquirer = require('inquirer');
 const {viewAllDepartments, addDepartment} = require('./departments.js');
-const {viewAllEmployees, addEmployee, updateEmployeeRole} = require('./manage_employees');
+const {viewAllEmployees, addEmployee, updateEmployeeRole, updateEmployeeManager} = require('./manage_employees');
 const {viewAllRoles, addRole} = require('./roles');
 // TODO: Import other questions
 
@@ -19,6 +18,12 @@ function mainQuestions () {
             'Update an employee role',
             'View all roles',
             'Add a new role',
+            'Update employee manager',
+            // 'View employees by manager',
+            //' View employees by department',
+            // 'View employees by department',
+            // 'Delete departments, roles, and employees',
+            // 'View the total utilized budget of a department',
         ],
     }
     ]; 
@@ -38,10 +43,10 @@ function mainQuestions () {
             viewAllRoles(mainQuestions);
         } else if (answers.action === 'Add a new role') {
             addRole(mainQuestions);   
+        } else if (answers.action === 'Update employee manager') {
+            updateEmployeeManager(mainQuestions);   
         }
     })
-  };
+};
   
- 
-
 module.exports = { mainQuestions };

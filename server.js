@@ -6,13 +6,7 @@ const connection = require('./db/connection.js');
 const router = express.Router();
 const {mainQuestions} = require("./sources/main_questions");
 
-// db.connect(async function () {
-//   start();
-// })
 
-
-
-// A function to initialize app
  // Function call to main_questions 
  mainQuestions();
 
