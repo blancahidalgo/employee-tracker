@@ -1,8 +1,9 @@
-const connection = require('../db/connection')
+const connection = require('./db/connection')
 const inquirer = require('inquirer')
+const cTable = require('console.table');
 
 function viewAllRoles() {
-   connection.query('SELECT * FROM roles;'), function (err, results, fields) 
+   connection.query('SELECT * FROM roles;'), function (err, results, fields) {
       console.table(results);
    };
 
@@ -14,11 +15,11 @@ function addRole() {
       message: 'write role title',
    },
    {
-      name: 'salary'
+      name: 'salary',
       message: 'write role salary',
    },
    {
-      name: 'department_id'
+      name: 'department_id',
       message: 'write department id',
    },
    ]).then(res => {
@@ -29,4 +30,4 @@ function addRole() {
       });
    })
 }
-module.exports = { viewAllRoles, addRole };
+module.exports = { viewAllRoles, addRole }};

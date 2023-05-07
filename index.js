@@ -1,3 +1,4 @@
+const inquirer = require('inquirer');
 const { viewEmployee, addEmployee } = require('./manage_employees.js');
 const { viewAllRoles, addRole } = require('./roles.js');
 const cTable = require('console.table');
@@ -19,7 +20,7 @@ const questions = [
             'Add a new role',
         ]
     },
-];
+]; 
 
 // A function to initialize app
 

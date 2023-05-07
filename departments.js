@@ -1,4 +1,5 @@
-const connection = require('../db/connection')
+const connection = require('./db/connection')
+const inquirer = require('inquirer')
 const { prompt } = require('inquirer')
 
 
@@ -24,3 +25,4 @@ function addDepartment() {
 
 
 module.exports = { viewAllDepartments, addDepartment };
+
