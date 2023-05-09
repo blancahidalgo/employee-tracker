@@ -1,11 +1,11 @@
 const connection = require('../db/connection');
 const inquirer = require('inquirer');
-const cTable = require('console.table');
-const { prompt } = require('inquirer');
+// const cTable = require('console.table');
+// const { prompt } = require('inquirer');
 
 
 function viewAllRoles(mainQuestions) {
-   connection.query('SELECT * FROM roles;', function (err, results, fields) {
+   connection.query('SELECT * FROM roles;', function(err, results, fields) {
       console.table(results);
       mainQuestions();
    });
