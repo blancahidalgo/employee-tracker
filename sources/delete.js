@@ -1,7 +1,8 @@
 const connection = require('../db/connection');
 const inquirer = require('inquirer');
-// const cTable = require('console.table');
-// const { prompt } = require('inquirer');
+const cTable = require('console.table');
+const { prompt } = require('inquirer');
+
 
 function deleteDepartment(mainQuestions) {
     // Get list of departments to choose from

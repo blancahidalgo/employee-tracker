@@ -56,7 +56,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 5. Click enter - and you'll see the data/tables populate in the command line! 
 6. Woohoo
 
-Most importantly - a LINK TO MY WALKTTHROUGH VIDEO CAN BE FOUND HERE 
+Most importantly - a LINK TO MY WALKTTHROUGH VIDEO CAN BE FOUND HERE -> https://drive.google.com/file/d/1cLZMKelSQ2s95fFLziwdADOQDvWZPB3u/view
 
 ## Built With
 - Dynamic JavaScript
